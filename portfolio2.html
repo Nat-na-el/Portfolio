@@ -1,0 +1,521 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Natnael Mulugeta | Portfolio</title>
+    <style>
+      body {
+        margin: 0;
+        font-family: Arial, sans-serif;
+        background: #0b0b0b;
+        color: #eee;
+        overflow-x: hidden;
+        line-height: 1.7;
+      }
+      section {
+        max-width: 900px;
+        margin: 60px auto;
+        padding: 0 20px;
+      }
+      h2 {
+        color: #d4af37;
+        font-size: 2.4rem;
+        border-bottom: 3px solid #d4af37;
+        padding-bottom: 10px;
+        width: fit-content;
+        margin-bottom: 50px;
+      }
+      header {
+        text-align: center;
+        padding: 120px 20px 80px;
+        background: #111111;
+        max-width: 900px;
+        margin: auto;
+        border-radius: 10px;
+      }
+      header h1 {
+        font-size: 4rem;
+        color: #fff;
+        margin-bottom: 15px;
+        font-weight: 700;
+      }
+      header p {
+        font-size: 1.6rem;
+        color: #d4af37;
+        font-weight: 600;
+      }
+
+      /* About Section */
+      .about-container {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 50px;
+        justify-content: center;
+        align-items: center;
+      }
+      .about-container img {
+        width: 280px;
+        max-width: 100%;
+        height: 280px;
+        border-radius: 50%; /* circle */
+        border: 6px solid #d4af37;
+        box-shadow: 0 0 20px #d4af37cc;
+        object-fit: cover;
+        transition: box-shadow 0.3s ease;
+        cursor: pointer;
+      }
+      .about-container img:hover {
+        box-shadow: 0 0 35px 6px #000000cc, 0 0 30px 4px #d4af37cc;
+      }
+      .about-text {
+        flex: 1;
+        min-width: 320px;
+        font-size: 1.3rem;
+        line-height: 1.8;
+        font-weight: 400;
+        max-width: 500px;
+      }
+      .about-text strong {
+        color: #d4af37;
+        font-weight: 700;
+      }
+
+      /* Projects Section */
+      .projects-container {
+        position: relative;
+        overflow: hidden;
+        user-select: none;
+        max-width: 900px;
+        margin: auto;
+        border-radius: 12px;
+        box-shadow: 0 0 20px #d4af37aa;
+        background: #121212;
+        padding: 40px 0;
+      }
+      .projects-wrapper {
+        display: flex;
+        gap: 40px;
+        overflow-x: auto;
+        scroll-behavior: smooth;
+        padding-left: 20px;
+        padding-right: 20px;
+        scrollbar-width: none;
+      }
+      .projects-wrapper::-webkit-scrollbar {
+        display: none;
+      }
+      .project-card {
+        flex: 0 0 600px;
+        background: #1c1c1c;
+        border-left: 6px solid #d4af37;
+        border-radius: 12px;
+        padding: 35px 30px;
+        box-shadow: 0 4px 16px rgba(0, 0, 0, 0.8);
+        color: #eee;
+        transition: transform 0.3s ease, box-shadow 0.3s ease;
+        scroll-snap-align: start;
+      }
+      .project-card:hover {
+        transform: translateY(-8px);
+        box-shadow: 0 8px 28px #d4af37cc;
+      }
+      .project-card h3 {
+        color: #d4af37;
+        font-size: 2rem;
+        margin-bottom: 25px;
+        font-weight: 700;
+      }
+      .project-card p {
+        font-size: 1.2rem;
+        line-height: 1.9;
+        text-align: justify;
+        font-weight: 400;
+      }
+      .scroll-instruction {
+        color: #999;
+        text-align: center;
+        font-style: italic;
+        margin-top: 18px;
+        font-size: 1rem;
+        user-select: none;
+      }
+
+      /* Vision Section */
+      .vision-text {
+        font-size: 1.3rem;
+        line-height: 1.85;
+        max-width: 800px;
+        margin: 60px auto 0;
+        font-weight: 400;
+        text-align: justify;
+        color: #eee;
+      }
+      .vision-text strong {
+        color: #d4af37;
+      }
+
+      /* Contact Section */
+      section a {
+        color: #d4af37;
+        font-weight: 600;
+        text-decoration: none;
+      }
+      section a:hover {
+        text-decoration: underline;
+      }
+
+      /* Footer */
+      footer {
+        text-align: center;
+        padding: 30px 0;
+        background: #111111;
+        color: #bbb;
+        font-size: 1rem;
+        font-weight: 400;
+        margin-top: 120px;
+        border-radius: 0 0 10px 10px;
+        max-width: 900px;
+        margin-left: auto;
+        margin-right: auto;
+      }
+
+      /* Responsive */
+      @media (max-width: 720px) {
+        header h1 {
+          font-size: 3rem;
+        }
+        .about-container {
+          flex-direction: column;
+          text-align: center;
+        }
+        .about-container img {
+          width: 220px;
+          height: 220px;
+          margin-bottom: 30px;
+        }
+        .project-card {
+          flex: 0 0 90vw;
+          padding: 30px 25px;
+        }
+      }
+      }
+      /* Social links container */
+      .social-links {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 25px;
+        justify-content: center;
+        max-width: 900px;
+        margin: 0 auto;
+      }
+      .social-links a {
+        display: flex;
+        align-items: center;
+        gap: 8px;
+        text-decoration: none;
+        font-weight: 600;
+        color: var(--gold);
+        font-size: 1.1rem;
+        transition: color 0.3s ease;
+      }
+      .social-links a:hover {
+        color: #fff;
+      }
+      .social-links svg {
+        width: 22px;
+        height: 22px;
+        fill: var(--gold);
+        transition: fill 0.3s ease;
+      }
+      .social-links a:hover svg {
+        fill: #fff;
+      }
+      /* Responsive */
+      @media (max-width: 600px) {
+        .project-card {
+          flex: 0 0 80vw;
+        }
+        .photo-container {
+          width: 140px;
+          height: 140px;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <header>
+      <h1>Natnael Mulugeta</h1>
+      <p>Backend Developer | Forex Enthusiast | Future Hedge Fund Manager</p>
+    </header>
+
+    <section>
+      <h2>About Me</h2>
+      <div class="about-container">
+        <img src="me.jpg" alt="Natnael Mulugeta" />
+        <div class="about-text">
+          <p>
+            I am a freshman at <strong>Addis Ababa University</strong>,
+            passionately pursuing a career in backend development and finance.
+            Currently enrolled in the <strong>ALX Backend Program</strong>, I am
+            acquiring strong skills in building APIs, handling databases, and
+            creating robust server-side applications.
+          </p>
+          <p>
+            Alongside coding, I have a deep fascination for
+            <strong>Forex trading</strong>. I actively backtest trading
+            strategies, analyze market trends, and explore algorithmic trading
+            to enhance my financial acumen.
+          </p>
+          <p>
+            My ambition is to merge my technical expertise and financial passion
+            to become a pioneering <strong>Hedge Fund Manager</strong> who
+            leverages technology to develop innovative investment strategies,
+            especially aimed at uplifting financial markets in Africa and
+            beyond.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <section>
+      <h2>Projects</h2>
+      <div
+        class="projects-container"
+        id="projects-container"
+        aria-label="Projects carousel"
+      >
+        <div class="projects-wrapper" id="projects-wrapper">
+          <div class="project-card" tabindex="0">
+            <h3>Forex Trading Bot</h3>
+            <p>
+              Developed a Python-based automated Forex trading bot using
+              technical indicators such as Moving Averages, RSI, and Bollinger
+              Bands. The bot runs backtests on historical market data to
+              optimize entry and exit strategies, aiming to maximize profit
+              while controlling risk. Designed for modularity, it allows easy
+              integration of new trading algorithms and supports live trading
+              environments.
+            </p>
+          </div>
+
+          <div class="project-card" tabindex="0">
+            <h3>Backend APIs</h3>
+            <p>
+              Created RESTful APIs using Python and Flask with a focus on
+              scalability, security, and performance. Features include JWT
+              authentication, role-based access control, PostgreSQL database
+              integration, and comprehensive unit and integration testing. These
+              APIs serve as the backbone for various applications requiring
+              reliable and secure data services.
+            </p>
+          </div>
+
+          <div class="project-card" tabindex="0">
+            <h3>Financial Data Dashboard</h3>
+            <p>
+              Built an interactive dashboard using Flask and Chart.js that
+              visualizes Forex market data in real-time. Users can track price
+              movements, trading volume, volatility, and sentiment indicators
+              with customizable views. The dashboard supports live data
+              streaming and provides intuitive charts to assist traders in
+              making informed decisions.
+            </p>
+          </div>
+
+          <div class="project-card" tabindex="0">
+            <h3>Portfolio Website</h3>
+            <p>
+              Designed and developed this portfolio website to showcase my
+              academic background at Addis Ababa University, my progress in the
+              ALX Backend program, and my projects and aspirations. The site
+              features a clean, responsive design with accessibility
+              considerations.
+            </p>
+          </div>
+        </div>
+      </div>
+      <div class="scroll-instruction">
+        Move your mouse near the left or right edge of this projects area to
+        scroll through the projects
+      </div>
+    </section>
+
+    <section>
+      <h2>Vision & Goals</h2>
+      <p class="vision-text">
+        My vision is to become a leading figure in the financial technology
+        space, combining my expertise in backend development and deep passion
+        for Forex trading. I am committed to building innovative systems that
+        automate and optimize investment strategies by leveraging cutting-edge
+        technologies such as machine learning, data analytics, and cloud
+        infrastructure.
+
+        <br /><br />
+
+        I aim to create a hedge fund that not only achieves exceptional returns
+        but also focuses on empowering investors in Africa by providing
+        accessible, transparent, and technology-driven investment opportunities.
+        This fund will utilize algorithmic trading models and sophisticated risk
+        management tools to navigate volatile markets effectively.
+
+        <br /><br />
+
+        Beyond technical skills, I plan to continuously enhance my understanding
+        of global financial markets, economics, and emerging technologies. I
+        want to foster a culture of lifelong learning, adaptability, and
+        innovation in my career path.
+
+        <br /><br />
+
+        Ultimately, my goal is to be recognized as a visionary hedge fund
+        manager who bridges the gap between finance and technology, making
+        significant contributions to wealth creation and economic growth across
+        the continent and worldwide.
+      </p>
+    </section>
+
+    <section>
+      <h2>Social Profiles</h2>
+      <div class="social-links">
+        <a
+          href="https://linkedin.com/in/nat-nael-mulugeta"
+          target="_blank"
+          rel="noopener noreferrer"
+          aria-label="LinkedIn"
+        >
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+            <path
+              d="M19 0h-14c-2.8 0-5 2.2-5 5v14c0 2.8 2.2 5 5 5h14c2.8 0 5-2.2 5-5v-14c0-2.8-2.2-5-5-5zm-11 20h-3v-11h3v11zm-1.5-12.3c-1 0-1.8-.8-1.8-1.7 0-.9.8-1.7 1.8-1.7s1.8.8 1.8 1.7c0 .9-.8 1.7-1.8 1.7zm13.5 12.3h-3v-5.7c0-1.4-.5-2.3-1.7-2.3-1 0-1.6.7-1.8 1.3-.1.2-.1.5-.1.8v6h-3v-11h3v1.5c.4-.6 1.1-1.5 2.6-1.5 1.9 0 3.4 1.2 3.4 3.9v6.1z"
+            />
+          </svg>
+          LinkedIn: natnael-mulugeta
+        </a>
+        <a
+          href="https://facebook.com/natimule.sifir"
+          target="_blank"
+          rel="noopener noreferrer"
+          aria-label="Facebook"
+        >
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+            <path
+              d="M22 12c0-5.5-4.5-10-10-10s-10 4.5-10 10c0 5 3.7 9.1 8.5 9.9v-7h-2.5v-3h2.5v-2.3c0-2.5 1.5-3.9 3.7-3.9 1.1 0 2.3.2 2.3.2v2.5h-1.2c-1.2 0-1.5.7-1.5 1.5v1.9h2.7l-.4 3h-2.3v7c4.8-.8 8.5-4.9 8.5-9.9z"
+            />
+          </svg>
+          Facebook: natnael sifir
+        </a>
+        <a
+          href="https://twitter.com/Natimule220"
+          target="_blank"
+          rel="noopener noreferrer"
+          aria-label="Twitter"
+        >
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+            <path
+              d="M23 3a10.9 10.9 0 01-3.1.9 5.4 5.4 0 002.4-3 10.8 10.8 0 01-3.4 1.3 5.4 5.4 0 00-9.3 4.9A15.4 15.4 0 012 4.6a5.4 5.4 0 001.7 7.2 5.4 5.4 0 01-2.4-.6v.1a5.4 5.4 0 004.3 5.3 5.4 5.4 0 01-2.4.1 5.4 5.4 0 005 3.8 10.9 10.9 0 01-6.8 2.3c-.4 0-.8 0-1.2-.1a15.3 15.3 0 008.3 2.4c9.9 0 15.3-8.2 15.3-15.3 0-.2 0-.4 0-.6A10.9 10.9 0 0023 3z"
+            />
+          </svg>
+          X (Twitter): Natimule220
+        </a>
+        <a
+          href="https://youtube.com/@Natuel22"
+          target="_blank"
+          rel="noopener noreferrer"
+          aria-label="YouTube"
+        >
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+            <path
+              d="M10 15l5.2-3-5.2-3v6zm12-3c0 1.6-.2 3.1-.6 4.6-.3 1.3-1.2 2.3-2.5 2.6-2.1.5-10.4.5-10.4.5s-8.3 0-10.4-.5c-1.3-.3-2.2-1.3-2.5-2.6-.4-1.5-.6-3-.6-4.6s.2-3.1.6-4.6c.3-1.3 1.2-2.3 2.5-2.6 2.1-.5 10.4-.5 10.4-.5s8.3 0 10.4.5c1.3.3 2.2 1.3 2.5 2.6.4 1.5.6 3 .6 4.6z"
+            />
+          </svg>
+          YouTube: @Natuel22
+        </a>
+        <a
+          href="https://tiktok.com/@ZMSJCgJM7"
+          target="_blank"
+          rel="noopener noreferrer"
+          aria-label="TikTok"
+        >
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+            <path
+              d="M12 2v16.5c-2.83 0-5.22-2.33-5.22-5.21 0-2.47 1.75-4.52 4.09-4.97v3.22h1.8V2h3.07c0 1.98 1.74 3.59 3.85 3.59v3.23c-1.58 0-2.84-1.32-2.84-2.94H12z"
+            />
+          </svg>
+          TikTok: Natuel
+        </a>
+        <a
+          href="https://github.com/Nat-na-el"
+          target="_blank"
+          rel="noopener noreferrer"
+          aria-label="GitHub"
+        >
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+            <path
+              d="M12 0a12 12 0 00-3.79 23.41c.6.11.82-.26.82-.58v-2.2c-3.34.73-4.04-1.61-4.04-1.61a3.18 3.18 0 00-1.34-1.76c-1.1-.75.08-.73.08-.73a2.5 2.5 0 011.82 1.22 2.56 2.56 0 003.5 1 2.56 2.56 0 01.76-1.6c-2.67-.3-5.47-1.33-5.47-5.93a4.65 4.65 0 011.23-3.22 4.31 4.31 0 01.12-3.18s1-.32 3.3 1.22a11.48 11.48 0 016 0c2.3-1.54 3.3-1.22 3.3-1.22a4.31 4.31 0 01.12 3.18 4.66 4.66 0 011.23 3.22c0 4.61-2.8 5.63-5.48 5.93a2.87 2.87 0 01.82 2.23v3.31c0 .32.22.7.83.58A12 12 0 0012 0z"
+            />
+          </svg>
+          GitHub: Natnael
+        </a>
+      </div>
+    </section>
+
+    <footer>
+      <p>
+        &copy; 2025 Natnael Mulugeta. Built with passion for code and finance.
+      </p>
+    </footer>
+
+    <script>
+      const container = document.getElementById("projects-container");
+      const wrapper = document.getElementById("projects-wrapper");
+
+      let scrollSpeed = 25; // Faster scroll speed
+      let scrolling = false;
+      let scrollDirection = 0;
+
+      container.addEventListener("mousemove", (e) => {
+        const rect = container.getBoundingClientRect();
+        const mouseX = e.clientX - rect.left;
+
+        const edgeZone = 150;
+
+        if (mouseX < edgeZone) {
+          scrollDirection = -1 * ((edgeZone - mouseX) / edgeZone);
+          if (!scrolling) startScroll();
+        } else if (mouseX > rect.width - edgeZone) {
+          scrollDirection = 1 * ((mouseX - (rect.width - edgeZone)) / edgeZone);
+          if (!scrolling) startScroll();
+        } else {
+          scrollDirection = 0;
+          scrolling = false;
+        }
+      });
+
+      container.addEventListener("mouseleave", () => {
+        scrolling = false;
+        scrollDirection = 0;
+      });
+
+      function startScroll() {
+        scrolling = true;
+        scrollStep();
+      }
+
+      function scrollStep() {
+        if (!scrolling || scrollDirection === 0) return;
+
+        let delta = scrollSpeed * scrollDirection;
+
+        let newScroll = wrapper.scrollLeft + delta;
+        const maxScroll = wrapper.scrollWidth - wrapper.clientWidth;
+
+        if (newScroll < 0) newScroll = 0;
+        if (newScroll > maxScroll) newScroll = maxScroll;
+
+        wrapper.scrollLeft = newScroll;
+
+        requestAnimationFrame(scrollStep);
+      }
+    </script>
+  </body>
+</html>
